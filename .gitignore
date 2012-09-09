@@ -4,3 +4,4 @@ places
 eshell/history
 eshell/lastdir
 tramp
+swank
