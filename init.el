@@ -13,11 +13,16 @@
 
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-eshell
                                   starter-kit-js starter-kit-bindings
-                                  clojure-mode clojure-test-mode markdown-mode)
+                                  clojure-mode clojure-test-mode nrepl
+                                  projectile)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(projectile-global-mode)
+(global-rainbow-delimiters-mode)
+(setq projectile-globally-ignored-files '("TAGS" "*.js"))
 
 ;; (eshell)
