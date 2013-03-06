@@ -26,3 +26,45 @@
 (setq projectile-globally-ignored-files '("TAGS" "*.js"))
 
 ;; (eshell)
+
+;; Bindings
+
+(global-set-key (kbd "C-c m") 'magit-status)
+(global-set-key (kbd "C-x N") 'nrepl-jack-in)
+(global-set-key (kbd "C-x B") 'projectile-find-file)
+(global-set-key (kbd "C-x T") 'ns-toggle-fullscreen)
+
+;; clojure-mode
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+
+;; cosmetics
+;; lose the stupid pipe chars on the split-screen bar
+(set-face-foreground 'vertical-border "white")
+(set-face-background 'vertical-border "white")
+
+;; font size
+(set-face-attribute 'default nil :height 150)
+
+;; markdown
+;; add file extentions to mode auto load
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+
+;; other options
+;; set ispell program name to aspell (brew install aspell)
+(setq-default ispell-program-name "aspell")
+
+;; turn off annoying visual-bell
+(setq visible-bell nil)
+
+;; save backup files to ~/.saves
+(setq backup-directory-alist `(("." . "~/.saves")))
+
+;; projectile
+(eval-after-load "grep"
+  '(progn
+     (add-to-list 'grep-find-ignored-directories ".lein*")
+     (add-to-list 'grep-find-ignored-directories "resources")
+     (add-to-list 'grep-find-ignored-directories "migrations")
+     (add-to-list 'grep-find-ignored-directories "target")
+     (add-to-list 'grep-find-ignored-directories "out")))
