@@ -14,7 +14,7 @@
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-eshell
                                   starter-kit-js starter-kit-bindings
                                   clojure-mode clojure-test-mode nrepl
-                                  projectile)
+                                  projectile rainbow-delimiters rainbow-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -36,6 +36,9 @@
 
 ;; clojure-mode
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+(add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(setq inferior-lisp-program "lein trampoline cljsbuild repl-listen")
 
 ;; cosmetics
 ;; lose the stupid pipe chars on the split-screen bar
