@@ -6,3 +6,4 @@ eshell/lastdir
 tramp
 swank
 url
+*.cache
