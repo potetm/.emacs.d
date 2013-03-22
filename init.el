@@ -4,8 +4,9 @@
 (package-initialize)
 
 ;; set theme dir and tomorrow-night theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'tomorrow-night t)
+(add-to-list 'load-path "~/.emacs.d/themes")
+(require 'color-theme-tomorrow)
+(color-theme-tomorrow-night)
 
 ;; desired starter-kit packages
 (when (not package-archive-contents)
@@ -45,7 +46,7 @@
 (set-face-background 'vertical-border "white")
 
 ;; font size
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 130)
 
 ;; markdown
 ;; add file extentions to mode auto load
