@@ -46,7 +46,7 @@
 (set-face-background 'vertical-border "white")
 
 ;; font size
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 100)
 
 ;; markdown
 ;; add file extentions to mode auto load
