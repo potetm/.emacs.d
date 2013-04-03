@@ -3,6 +3,9 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; add themes folder to theme load path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
 ;; desired starter-kit packages
 (when (not package-archive-contents)
   (package-refresh-contents))
