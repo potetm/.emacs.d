@@ -3,11 +3,6 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
-;; set theme dir and tomorrow-night theme
-(add-to-list 'load-path "~/.emacs.d/themes")
-(require 'color-theme-tomorrow)
-(color-theme-tomorrow-night)
-
 ;; desired starter-kit packages
 (when (not package-archive-contents)
   (package-refresh-contents))
