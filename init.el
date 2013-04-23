@@ -46,7 +46,7 @@
 (set-face-background 'vertical-border "white")
 
 ;; font size
-(set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 120)
+(set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 150)
 
 ;; markdown
 ;; add file extentions to mode auto load
