@@ -27,10 +27,17 @@
 (setq projectile-globally-ignored-files '("TAGS" "*.js"))
 
 ;; Enable mouse support
-(require 'mouse)
-(xterm-mouse-mode t)
-(defun track-mouse (e))
-(setq mouse-sel-mode t)
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] '(lambda ()
+                              (interactive)
+                              (scroll-down 1)))
+  (global-set-key [mouse-5] '(lambda ()
+                              (interactive)
+                              (scroll-up 1)))
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t))
 
 ;; (eshell)
 
@@ -39,6 +46,12 @@
 (global-set-key (kbd "C-x N") 'nrepl-jack-in)
 (global-set-key (kbd "C-x B") 'projectile-find-file)
 (global-set-key (kbd "C-x T") 'ns-toggle-fullscreen)
+
+;; Paredit in the terminal
+(global-set-key "\C-c0" 'paredit-forward-slurp-sexp)
+(global-set-key "\C-c9" 'paredit-backward-slurp-sexp)
+(global-set-key "\C-c]" 'paredit-forward-barf-sexp)
+(global-set-key "\C-c[" 'paredit-backward-barf-sexp)
 
 ;; clojure-mode
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
