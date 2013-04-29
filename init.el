@@ -30,14 +30,21 @@
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
-  (global-set-key [mouse-4] '(lambda ()
-                              (interactive)
-                              (scroll-down 1)))
-  (global-set-key [mouse-5] '(lambda ()
-                              (interactive)
-                              (scroll-up 1)))
+  
+  (defun up-slightly () (interactive) (scroll-up 5))
+  (defun down-slightly () (interactive) (scroll-down 5))
+  
+  (global-set-key (kbd "<menu-bar> <mouse-4>") 'down-slightly)
+  (global-set-key (kbd "<menu-bar> <mouse-5>") 'up-slightly)
+  
   (defun track-mouse (e))
   (setq mouse-sel-mode t))
+
+;; Window system specific settings
+(unless (not window-system)
+  ;; font size
+  (set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 150)
+  (server-start))
 
 ;; (eshell)
 
@@ -63,9 +70,6 @@
 ;; lose the stupid pipe chars on the split-screen bar
 (set-face-foreground 'vertical-border "white")
 (set-face-background 'vertical-border "white")
-
-;; font size
-(set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 150)
 
 ;; markdown
 ;; add file extentions to mode auto load
