@@ -26,8 +26,9 @@
 (global-rainbow-delimiters-mode)
 (setq projectile-globally-ignored-files '("TAGS" "*.js"))
 
-;; Enable mouse support
+;; Terminal specific configurations
 (unless window-system
+  ;; Enable mouse support
   (require 'mouse)
   (xterm-mouse-mode t)
   
@@ -40,8 +41,8 @@
   (defun track-mouse (e))
   (setq mouse-sel-mode t))
 
-;; Window system specific settings
-(unless (not window-system)
+;; Window system specific configurations
+(when window-system
   ;; font size
   (set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 150)
   (server-start))
