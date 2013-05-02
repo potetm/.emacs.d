@@ -19,7 +19,8 @@
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-eshell
                                   starter-kit-js starter-kit-bindings
                                   clojure-mode clojure-test-mode nrepl
-                                  projectile rainbow-delimiters rainbow-mode)
+                                  projectile rainbow-delimiters rainbow-mode
+                                  ir-black-theme naquadah-theme)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -95,8 +96,8 @@
 
 ;; cosmetics
 ;; lose the stupid pipe chars on the split-screen bar
-(set-face-foreground 'vertical-border "white")
-(set-face-background 'vertical-border "white")
+(set-face-foreground 'vertical-border "#202020")
+(set-face-background 'vertical-border "#202020")
 
 ;; markdown
 ;; add file extentions to mode auto load
