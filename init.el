@@ -35,6 +35,8 @@
   (defun up-slightly () (interactive) (scroll-up 5))
   (defun down-slightly () (interactive) (scroll-down 5))
   
+  (global-set-key (kbd "<mouse-4>") 'down-slightly)
+  (global-set-key (kbd "<mouse-5>") 'up-slightly)
   (global-set-key (kbd "<menu-bar> <mouse-4>") 'down-slightly)
   (global-set-key (kbd "<menu-bar> <mouse-5>") 'up-slightly)
   
@@ -75,10 +77,16 @@
 (global-set-key "\C-c]" 'paredit-forward-barf-sexp)
 (global-set-key "\C-c[" 'paredit-backward-barf-sexp)
 
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+
 ;; clojure-mode
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
 (setq inferior-lisp-program "lein trampoline cljsbuild repl-listen")
 
 ;; cosmetics
@@ -110,24 +118,7 @@
      (add-to-list 'grep-find-ignored-directories "target")
      (add-to-list 'grep-find-ignored-directories "out")))
 
-;; Teach compile the syntax of the kibit output
-(require 'compile)
-(add-to-list 'compilation-error-regexp-alist-alist
-         '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
-(add-to-list 'compilation-error-regexp-alist 'kibit)
-
-;; A convenient command to run "lein kibit" in the project to which
-;; the current emacs buffer belongs to.
-(defun kibit ()
-  "Run kibit on the current project.
-Display the results in a hyperlinked *compilation* buffer."
-  (interactive)
-  (compile "lein kibit"))
-
-(defun kibit-current-file ()
-  "Run kibit on the current file.
-Display the results in a hyperlinked *compilation* buffer."
-  (interactive)
-  (compile (concat "lein kibit " buffer-file-name)))
-
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+
+;; remove fancy f for anonymous functions
+(remove-hook 'clojure-mode-hook 'esk-pretty-fn)
