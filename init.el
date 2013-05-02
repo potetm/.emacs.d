@@ -1,12 +1,16 @@
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (package-initialize)
 
 ;; add themes folder to theme load path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
-(load-theme 'wombat t)
+(load-theme 'ir-black t)
+;;(load-theme 'naquadah t)
 
 ;; desired starter-kit packages
 (when (not package-archive-contents)
