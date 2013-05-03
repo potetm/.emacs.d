@@ -11,7 +11,7 @@
                                   starter-kit-js starter-kit-bindings
                                   clojure-mode clojure-test-mode nrepl
                                   projectile rainbow-delimiters rainbow-mode
-                                  ir-black-theme naquadah-theme)
+                                  ir-black-theme)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -22,7 +22,6 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 (load-theme 'ir-black t)
-;;(load-theme 'naquadah t)
 
 ;; Terminal specific configurations
 (unless window-system
