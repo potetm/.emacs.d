@@ -6,12 +6,6 @@
 
 (package-initialize)
 
-;; add themes folder to theme load path
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
-(load-theme 'ir-black t)
-;;(load-theme 'naquadah t)
-
 ;; desired starter-kit packages
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -27,9 +21,11 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(projectile-global-mode)
-(global-rainbow-delimiters-mode)
-(setq projectile-globally-ignored-files '("TAGS" "*.js"))
+;; add themes folder to theme load path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
+(load-theme 'ir-black t)
+;;(load-theme 'naquadah t)
 
 ;; Terminal specific configurations
 (unless window-system
@@ -64,11 +60,14 @@
 
 ;; Window system specific configurations
 (when window-system
-  ;; font size
-  (set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 150)
-  (server-start))
+  (set-face-attribute 'default nil :font "Droid Sans Mono for Powerline" :height 150) ;; font & font size
+  (server-start)
+  (eshell))
 
-;; (eshell)
+;; Globals
+(global-rainbow-delimiters-mode)
+(projectile-global-mode)
+(setq projectile-globally-ignored-files '("TAGS" "*.js"))
 
 ;; Bindings
 (global-set-key (kbd "C-c m") 'magit-status)
@@ -77,10 +76,10 @@
 (global-set-key (kbd "C-x T") 'ns-toggle-fullscreen)
 
 ;; Paredit in the terminal
-(global-set-key "\C-c0" 'paredit-forward-slurp-sexp)
-(global-set-key "\C-c9" 'paredit-backward-slurp-sexp)
-(global-set-key "\C-c]" 'paredit-forward-barf-sexp)
-(global-set-key "\C-c[" 'paredit-backward-barf-sexp)
+(global-set-key (kbd "C-c 0") 'paredit-forward-slurp-sexp)
+(global-set-key (kbd "C-c 9") 'paredit-backward-slurp-sexp)
+(global-set-key (kbd "C-c ]") 'paredit-forward-barf-sexp)
+(global-set-key (kbd "C-c [") 'paredit-backward-barf-sexp)
 
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
