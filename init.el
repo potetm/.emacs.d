@@ -1,8 +1,7 @@
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
 
@@ -32,15 +31,15 @@
   ;; Enable mouse support
   (require 'mouse)
   (xterm-mouse-mode t)
-  
+
   (defun up-slightly () (interactive) (scroll-up 5))
   (defun down-slightly () (interactive) (scroll-down 5))
-  
+
   (global-set-key (kbd "<mouse-4>") 'down-slightly)
   (global-set-key (kbd "<mouse-5>") 'up-slightly)
   (global-set-key (kbd "<menu-bar> <mouse-4>") 'down-slightly)
   (global-set-key (kbd "<menu-bar> <mouse-5>") 'up-slightly)
-  
+
   (defun track-mouse (e))
   (setq mouse-sel-mode t)
 
