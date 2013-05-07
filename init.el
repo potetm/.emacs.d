@@ -122,3 +122,11 @@
 
 ;; remove fancy f for anonymous functions
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
+
+(when (eq window-system 'ns)
+  ;; Dash
+  (defun open-in-dash (docset query)
+    (interactive "sDocset: \nsQuery: \n")
+    (shell-command (concat "open" " dash://" docset ":" query)))
+
+  (global-set-key (kbd "C-c d") 'open-in-dash))
