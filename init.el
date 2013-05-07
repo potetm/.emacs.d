@@ -123,10 +123,17 @@
 ;; remove fancy f for anonymous functions
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
 
-(when (eq window-system 'ns)
+
+;; If running Mac OS X set up dash functionality
+(when (not (eq (display-graphic-p) 'x))
   ;; Dash
   (defun open-in-dash (docset query)
     (interactive "sDocset: \nsQuery: \n")
     (shell-command (concat "open" " dash://" docset ":" query)))
 
-  (global-set-key (kbd "C-c d") 'open-in-dash))
+  (defun open-word-in-dash (docset)
+    (interactive "sDocset: \n")
+    (shell-command (concat "open" " dash://" docset ":" (current-word))))
+
+  (global-set-key (kbd "C-c d") 'open-in-dash)
+  (global-set-key (kbd "C-c D") 'open-word-in-dash))
