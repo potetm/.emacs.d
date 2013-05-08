@@ -86,8 +86,7 @@
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-
-(setq inferior-lisp-program "lein trampoline cljsbuild repl-listen")
+(setq clojure-mode-inf-lisp-command "lein trampoline cljsbuild repl-listen")
 
 ;; cosmetics
 ;; lose the stupid pipe chars on the split-screen bar
