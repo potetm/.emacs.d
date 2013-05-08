@@ -123,7 +123,6 @@
 ;; remove fancy f for anonymous functions
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
 
-
 ;; If running Mac OS X set up dash functionality
 (when (not (eq (display-graphic-p) 'x))
   ;; Dash
@@ -137,3 +136,20 @@
 
   (global-set-key (kbd "C-c d") 'open-in-dash)
   (global-set-key (kbd "C-c D") 'open-word-in-dash))
+
+;; Project notes
+(defun save-note (note)
+  (interactive "sNote: \n")
+  (append-to-file (format "* %s\n" note) nil "~/Dropbox/Notes/ProjectNotes.md"))
+
+(global-set-key (kbd "C-c n") 'save-note)
+
+(defun open-notes ()
+  (interactive)
+  (split-window-horizontally)
+  (other-window 1)
+  (switch-to-buffer (find-file-noselect "~/Dropbox/Notes/ProjectNotes.md" t))
+  (revert-buffer t t t))
+
+(global-set-key (kbd "C-c N") 'open-notes)
+
