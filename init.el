@@ -20,6 +20,7 @@
                       clojure-snippets
                       cljsbuild-mode
                       nrepl
+                      auto-complete
                       ac-nrepl
                       less-css-mode
                       ir-black-theme
