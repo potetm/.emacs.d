@@ -7,15 +7,24 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-eshell
-                                  starter-kit-js starter-kit-bindings
-                                  clojure-mode clojure-test-mode nrepl
-                                  projectile rainbow-delimiters rainbow-mode
-                                  ir-black-theme less-css-mode
-                                  color-theme-sanityinc-solarized
-                                  color-theme-sanityinc-tomorrow
-                                  ac-nrepl clojure-snippets
-                                  cljsbuild-mode)
+(defvar my-packages '(starter-kit
+                      starter-kit-lisp
+                      starter-kit-eshell
+                      starter-kit-js
+                      starter-kit-bindings
+                      projectile
+                      rainbow-delimiters
+                      rainbow-mode
+                      clojure-mode
+                      clojure-test-mode
+                      clojure-snippets
+                      cljsbuild-mode
+                      nrepl
+                      ac-nrepl
+                      less-css-mode
+                      ir-black-theme
+                      color-theme-sanityinc-solarized
+                      color-theme-sanityinc-tomorrow)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -25,7 +34,7 @@
 ;; add themes folder to theme load path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
-(load-theme 'sanityinc-solarized-light t)
+(load-theme 'sanityinc-solarized-dark t)
 
 ;; turn off annoying visual-bell
 (setq visible-bell nil)

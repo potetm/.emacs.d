@@ -1,3 +1,6 @@
+;; all modes
+(global-linum-mode t)
+
 ;; clojure-mode
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 (add-hook 'clojure-mode-hook 'paredit-mode)
