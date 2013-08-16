@@ -32,6 +32,7 @@
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 ;; Use ac-nrepl docs instead of default repl docs
+(define-key nrepl-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
 ;; markdown
