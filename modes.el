@@ -35,6 +35,10 @@
 (define-key nrepl-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
+;; clojure-script
+(add-to-list 'auto-mode-alist '("\.clj$" . clojure-mode))
+
+;; less
 ;; markdown
 ;; add file extentions to mode auto load
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
