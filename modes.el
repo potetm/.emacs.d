@@ -16,6 +16,12 @@
 (setq nrepl-hide-special-buffers t)
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
+;; add syntax highlighting to the repl
+(add-hook 'nrepl-mode-hook
+      (lambda ()
+        (font-lock-mode nil)
+        (clojure-mode-font-lock-setup)
+        (font-lock-mode t)))
 
 ;; ac-nrepl
 (require 'auto-complete)
