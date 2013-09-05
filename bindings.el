@@ -9,6 +9,7 @@
 (global-set-key (kbd "C-c 9") 'paredit-backward-slurp-sexp)
 (global-set-key (kbd "C-c ]") 'paredit-forward-barf-sexp)
 (global-set-key (kbd "C-c [") 'paredit-backward-barf-sexp)
+(global-set-key (kbd "C-M-w") 'paredit-copy-as-kill)
 
 ;; Window movement
 (global-set-key (kbd "C-c <left>")  'windmove-left)
