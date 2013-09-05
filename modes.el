@@ -44,6 +44,16 @@
 ;; clojure-script
 (add-to-list 'auto-mode-alist '("\.clj$" . clojure-mode))
 
+;; expectations indentation
+(define-clojure-indent
+  (expect 'defun)
+  (expect-let 'defun)
+  (given 'defun)
+  (context 1)
+  (freeze-time 1)
+  (redef-state 1)
+  (from-each 1))
+
 ;; less
 ;; markdown
 ;; add file extentions to mode auto load
