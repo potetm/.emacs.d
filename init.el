@@ -41,6 +41,8 @@
 
 ;; turn off annoying visual-bell
 (setq visible-bell nil)
+(setq ring-bell-function 'ignore)
+(global-unset-key (kbd "s-q"))
 
 ;; save backup files to ~/.saves
 (setq backup-directory-alist `(("." . "~/.saves")))
